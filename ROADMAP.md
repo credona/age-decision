@@ -8,12 +8,12 @@ Repository-specific implementation details are tracked in each technical reposit
 
 <h2>Current focus</h2>
 
-- stabilize public API contracts
-- keep score naming consistent across services
-- improve model and benchmark transparency
-- document privacy guarantees
-- prepare proof-friendly response structures
-- keep third-party model redistribution explicit
+- [x] stabilize public API contracts
+- [x] keep score naming consistent across services
+- [ ] improve model and benchmark transparency
+- [x] document privacy guarantees
+- [x] prepare proof-friendly response structures
+- [x] keep third-party model redistribution explicit
 
 <hr>
 
@@ -41,7 +41,8 @@ Repository-specific implementation details are tracked in each technical reposit
 - [x] Add request tracing across services
 - [x] Add OpenAPI contract tests
 - [ ] Add unified error code documentation
-- [ ] Add compatibility policy
+- [x] Add compatibility policy
+- [x] Remove legacy score aliases from public contracts
 
 <hr>
 
@@ -61,8 +62,8 @@ Repository-specific implementation details are tracked in each technical reposit
 
 <h2>Phase 4 - Developer adoption</h2>
 
-- [ ] Add API usage examples
-- [ ] Add SDK examples
+- [x] Add API usage examples
+- [x] Add SDK examples
 - [ ] Add Node.js example
 - [ ] Add browser example
 - [ ] Add Nuxt / Next.js examples
@@ -74,7 +75,7 @@ Repository-specific implementation details are tracked in each technical reposit
 
 <h2>Phase 5 - Trust and proof layer</h2>
 
-- [ ] Define proof-friendly claim format
+- [x] Define proof-friendly claim format
 - [ ] Add signed verification result prototype
 - [ ] Add proof verification endpoint
 - [ ] Add reusable Credona score envelope
