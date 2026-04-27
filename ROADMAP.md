@@ -13,6 +13,7 @@ Repository-specific implementation details are tracked in each technical reposit
 - improve model and benchmark transparency
 - document privacy guarantees
 - prepare proof-friendly response structures
+- keep third-party model redistribution explicit
 
 <hr>
 
@@ -46,8 +47,10 @@ Repository-specific implementation details are tracked in each technical reposit
 
 <h2>Phase 3 - Scientific transparency</h2>
 
-- [ ] Document all models used by each service
-- [ ] Document model origins and licenses
+- [x] Document all models used by each service
+- [x] Document model origins and licenses
+- [x] Document model redistribution policy across all repositories
+- [x] Ensure public Docker images do not silently embed model binaries
 - [ ] Document benchmark datasets
 - [ ] Publish benchmark methodology
 - [ ] Add calibration notes
@@ -65,6 +68,7 @@ Repository-specific implementation details are tracked in each technical reposit
 - [ ] Add Nuxt / Next.js examples
 - [ ] Add deployment reference
 - [ ] Add production configuration guide
+- [x] Add model mounting guide for Docker deployments
 
 <hr>
 
