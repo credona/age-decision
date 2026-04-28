@@ -241,12 +241,12 @@ status:
 <h2>Temporal and liveness evolution</h2>
 
 <pre>
-| type  | impact | target | description                  | core | antispoof | api | sdk | status |
-|-------|--------|--------|------------------------------|------|-----------|-----|-----|--------|
-| feat  | X      | v3.x.x | image sequence input         | [~]  | [ ]       | [ ] | [ ] | [ ]    |
-| feat  | X      | v3.x.x | video liveness               | [~]  | [ ]       | [ ] | [ ] | [ ]    |
-| feat  | X      | v3.x.x | replay resistance            | [~]  | [ ]       | [ ] | [ ]    | [ ]    |
-| feat  | Y      | v3.x.x | temporal consistency scoring | [~]  | [ ]       | [ ] | [ ] | [ ]    |
+| type  | impact | target | description                    | core | antispoof | api | sdk | status |
+|-------|--------|--------|--------------------------------|------|-----------|-----|-----|--------|
+| feat  | X      | v3.x.x | image sequence input           | [~]  | [ ]       | [ ] | [ ] | [ ]    |
+| feat  | X      | v3.x.x | video liveness                 | [~]  | [ ]       | [ ] | [ ] | [ ]    |
+| feat  | X      | v3.x.x | replay resistance              | [~]  | [ ]       | [ ] | [ ] | [ ]    |
+| feat  | Y      | v3.x.x | temporal consistency scoring   | [~]  | [ ]       | [ ] | [ ] | [ ]    |
 </pre>
 
 <hr>
