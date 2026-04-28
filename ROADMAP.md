@@ -22,11 +22,22 @@ impact:
 - Y: backward-compatible feature
 - Z: internal change or fix
 
+versioning:
+- X → major version
+- Y → minor version
+- Z → patch version
+
 repos:
 - core
 - antispoof
 - api
 - sdk
+
+current versions:
+- core: 2.1.1
+- antispoof: 2.1.0
+- api: 2.1.0
+- sdk: 2.1.0
 
 status:
 - [ ] planned
@@ -48,11 +59,11 @@ status:
 | removed estimated age exposure           | [x]  | -         | [x] | [x] | [x]    |
 | removed raw confidence exposure          | [x]  | [x]       | [x] | [x] | [x]    |
 | explicit score ownership                 | [x]  | [x]       | [x] | [x] | [x]    |
-| request tracing                          | [x]  | [x]       | [x] | [x]    | [x]    |
-| model documentation                      | [x]  | [x]       |  -  |  -  | [x]    |
-| model binary policy                      | [x]  | [x]       | [x] | [x]    | [x]    |
-| OpenAPI / contract tests                 | [x]  | [x]       | [x] | [x]    | [x]    |
-| ZK-ready / proof-ready structure         | [x]  | -         | [x] | [x]    | [x]    |
+| request tracing                          | [x]  | [x]       | [x] | [x] | [x]    |
+| model documentation                      | [x]  | [x]       | -   | -   | [x]    |
+| model binary policy                      | [x]  | [x]       | [x] | [x] | [x]    |
+| OpenAPI / contract tests                 | [x]  | [x]       | [x] | [x] | [x]    |
+| ZK-ready / proof-ready structure         | [x]  | -         | [x] | [x] | [x]    |
 </pre>
 
 <hr>
@@ -64,221 +75,154 @@ status:
 |------------------------------------------|------|-----------|-----|-----|--------|
 | centralized project metadata             | [x]  | [x]       | [x] | [x] | [x]    |
 | centralized compatibility metadata       | [x]  | [x]       | [x] | [x] | [x]    |
-| version endpoint / version metadata      | [x]  | [x]       | [x] | [x] | [x]    |
+| version endpoint                         | [x]  | [x]       | [x] | [x] | [x]    |
 | generated documentation blocks           | [x]  | [x]       | [x] | [x] | [x]    |
 | metadata validation scripts              | [x]  | [x]       | [x] | [x] | [x]    |
-| release tag validation scripts           | [x]  | [x]       | [x] | [x] | [x]    |
+| release tag validation                   | [x]  | [x]       | [x] | [x] | [x]    |
 | compatibility documentation              | [x]  | [x]       | [x] | [x] | [x]    |
 | unified CI graph                         | [x]  | [x]       | [x] | [x] | [x]    |
-| quality checks                           | [x]  | [x]       | [x] | [x] | [x]    |
 | Docker runtime validation                | [x]  | [x]       | [x] | [x] | [x]    |
-| package metadata validation              | -    | -         | -   | [x] | [x]    |
 </pre>
 
 <hr>
 
-<h2>Versioning and compatibility</h2>
+<h2>v2.2.0 – Developer workflow and release automation</h2>
 
 <pre>
-| type  | impact | target | description                        | core | antispoof | api | sdk | status |
-|-------|--------|--------|------------------------------------|------|-----------|-----|-----|--------|
-| infra | Y      | v2.1.0 | compatibility matrix CI            | [x]  | [x]       | [x] | [x] | [x]    |
-| docs  | Z      | v2.1.0 | compatibility policy documentation | [x]  | [x]       | [x] | [x] | [x]    |
-| infra | Y      | v2.2.0 | cross-repo integration tests       | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
-| infra | Y      | v2.3.0 | regression compatibility CI        | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
+| type  | impact | target | description                                          | core | antispoof | api | sdk | status |
+|-------|--------|--------|------------------------------------------------------|------|-----------|-----|-----|--------|
+| infra | Y      | 2.2.0  | one-command local check                              | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
+| infra | Y      | 2.2.0  | one-command release preparation                      | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
+| infra | Y      | 2.2.0  | pre-commit hooks                                     | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
+| infra | Y      | 2.2.0  | pre-push validation                                  | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
+| infra | Y      | 2.2.0  | update-all script                                    | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
+| infra | Y      | 2.2.0  | check-all script                                     | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
+| infra | Y      | 2.2.0  | automatic release tagging from metadata after main CI| [ ]  | [ ]       | [ ] | [ ] | [ ]    |
+| infra | Y      | 2.2.0  | tag-triggered GitHub release workflow                | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
+| infra | Y      | 2.2.0  | tag-triggered Docker image workflow                  | [ ]  | [ ]       | [ ] | -   | [ ]    |
+| infra | Y      | 2.2.0  | tag-triggered npm publish workflow                   | -    | -         | -   | [ ] | [ ]    |
+| infra | Y      | 2.2.0  | block push on CI-equivalent failures                 | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
 </pre>
 
 <hr>
 
-<h2>API governance</h2>
+<h2>v2.2.x – Documentation and changelog automation</h2>
 
 <pre>
-| type  | impact | target | description                         | core | antispoof | api | sdk | status |
-|-------|--------|--------|-------------------------------------|------|-----------|-----|-----|--------|
-| chore | Z      | v2.1.0 | API versioning strategy             | [x]  | [x]       | [x] | [x] | [x]    |
-| chore | Y      | v2.2.0 | stable status contract              | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
-| chore | Y      | v2.2.0 | stable error code and message rules | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
-| chore | Z      | v2.2.0 | deprecation policy                  | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
-| chore | Z      | v2.2.0 | backward compatibility rules        | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
+| type | impact | target | description                                      | core | antispoof | api | sdk | status |
+|------|--------|--------|--------------------------------------------------|------|-----------|-----|-----|--------|
+| docs | Z      | 2.2.1  | automate docs generation                         | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
+| docs | Z      | 2.2.1  | enforce generated blocks                         | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
+| docs | Z      | 2.2.2  | prevent manual drift                             | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
+| docs | Z      | 2.2.2  | generate changelog sections automatically        | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
+| infra| Z      | 2.2.2  | inject changelog content into release description| [ ]  | [ ]       | [ ] | [ ] | [ ]    |
 </pre>
 
 <hr>
 
-<h2>Automation and repository tooling</h2>
-
-<pre>
-| type  | impact | target | description                              | core | antispoof | api | sdk | status |
-|-------|--------|--------|------------------------------------------|------|-----------|-----|-----|--------|
-| chore | Z      | v2.2.0 | reorganize scripts directory             | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
-| infra | Z      | v2.2.0 | add update-all script                    | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
-| infra | Z      | v2.2.0 | add check-all script                     | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
-| infra | Z      | v2.2.0 | add before-push validation script        | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
-| infra | Z      | v2.2.0 | auto-run docs generation before push     | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
-| infra | Z      | v2.2.0 | auto-run metadata compatibility checks   | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
-| infra | Z      | v2.2.0 | block push when tests fail               | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
-| infra | Z      | v2.2.0 | block push when formatting still fails   | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
-</pre>
-
-<hr>
-
-<h2>Documentation automation</h2>
-
-<pre>
-| type | impact | target | description                         | core | antispoof | api | sdk | status |
-|------|--------|--------|-------------------------------------|------|-----------|-----|-----|--------|
-| docs | Z      | v2.2.0 | automate all docs/*.md examples     | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
-| docs | Z      | v2.2.0 | enforce generated block markers     | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
-| docs | Z      | v2.2.0 | prevent manual drift in README/docs | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
-| docs | Z      | v2.2.0 | generate changelog release blocks   | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
-</pre>
-
-<hr>
-
-<h2>Metadata and package validation</h2>
+<h2>v2.2.x – Metadata and package validation</h2>
 
 <pre>
 | type  | impact | target | description                                      | core | antispoof | api | sdk | status |
 |-------|--------|--------|--------------------------------------------------|------|-----------|-----|-----|--------|
-| infra | Z      | v2.2.0 | test project.json version consistency            | [ ]  | [ ]       | [ ] | [x] | [~]    |
-| infra | Z      | v2.2.0 | test package.json version consistency            | -    | -         | -   | [ ] | [ ]    |
-| infra | Z      | v2.2.0 | test pyproject.toml/package metadata consistency | [ ]  | [ ]       | [ ] | -   | [ ]    |
-| infra | Z      | v2.2.0 | test Docker image metadata consistency           | [ ]  | [ ]       | [ ] | -   | [ ]    |
-| infra | Z      | v2.2.0 | test release tag against metadata                | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
+| infra | Z      | 2.2.1  | test project.json version consistency            | [ ]  | [ ]       | [ ] | [x] | [~]    |
+| infra | Z      | 2.2.1  | test package.json version consistency            | -    | -         | -   | [ ] | [ ]    |
+| infra | Z      | 2.2.1  | test pyproject metadata consistency              | [ ]  | [ ]       | [ ] | -   | [ ]    |
+| infra | Z      | 2.2.2  | test Docker image metadata consistency           | [ ]  | [ ]       | [ ] | -   | [ ]    |
+| infra | Z      | 2.2.2  | test release tag against metadata                | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
 </pre>
 
 <hr>
 
-<h2>Security baseline</h2>
+<h2>v2.3.0 – API governance and security</h2>
 
 <pre>
-| type  | impact | target | description          | core | antispoof | api | sdk | status |
-|-------|--------|--------|----------------------|------|-----------|-----|-----|--------|
-| feat  | Y      | v2.2.0 | request validation   | [ ]  | [ ]       | [ ] | -   | [ ]    |
-| feat  | Y      | v2.2.0 | rate limiting        | -    | -         | [ ] | -   | [ ]    |
-| feat  | Y      | v2.3.0 | payload limits       | -    | -         | [ ] | -   | [ ]    |
-| feat  | Y      | v2.3.0 | API authentication   | -    | -         | [ ] | [ ] | [ ]    |
-| infra | Y      | v2.3.0 | security test suite  | [ ]  | [ ]       | [ ] | -   | [ ]    |
+| type  | impact | target | description                           | core | antispoof | api | sdk | status |
+|-------|--------|--------|---------------------------------------|------|-----------|-----|-----|--------|
+| feat  | Y      | 2.3.0  | stable status contract                | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
+| feat  | Y      | 2.3.0  | standardized error code/message model | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
+| feat  | Y      | 2.3.0  | request validation                    | [ ]  | [ ]       | [ ] | -   | [ ]    |
+| feat  | Y      | 2.3.0  | rate limiting                         | -    | -         | [ ] | -   | [ ]    |
+| chore | Z      | 2.3.1  | deprecation policy                    | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
 </pre>
 
 <hr>
 
-<h2>Code quality and tooling</h2>
-
-<pre>
-| type  | impact | target | description        | core | antispoof | api | sdk | status |
-|-------|--------|--------|--------------------|------|-----------|-----|-----|--------|
-| chore | Z      | v2.1.0 | coding standards   | [x]  | [x]       | [x] | [x] | [x]    |
-| infra | Z      | v2.1.0 | linters            | [x]  | [x]       | [x] | [x] | [x]    |
-| infra | Z      | v2.1.0 | formatters         | [x]  | [x]       | [x] | [x] | [x]    |
-| infra | Z      | v2.2.0 | pre-commit hooks   | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
-</pre>
-
-<hr>
-
-<h2>Machine learning lifecycle</h2>
+<h2>v2.4.0 – Model lifecycle and transparency</h2>
 
 <pre>
 | type  | impact | target | description              | core | antispoof | api | sdk | status |
 |-------|--------|--------|--------------------------|------|-----------|-----|-----|--------|
-| feat  | Y      | v2.2.0 | model validation         | [ ]  | [ ]       | -   | -   | [ ]    |
-| feat  | Y      | v2.3.0 | model versioning         | [ ]  | [ ]       | -   | -   | [ ]    |
-| feat  | Y      | v2.4.0 | multi-model support      | [ ]  | [ ]       | -   | -   | [ ]    |
-| feat  | Y      | v2.4.0 | model reproducibility    | [ ]  | [ ]       | -   | -   | [ ]    |
-| feat  | Y      | v2.5.0 | calibration              | [ ]  | [ ]       | -   | -   | [ ]    |
+| feat  | Y      | 2.4.0  | model validation         | [ ]  | [ ]       | -   | -   | [ ]    |
+| feat  | Y      | 2.4.0  | model versioning         | [ ]  | [ ]       | -   | -   | [ ]    |
+| docs  | Z      | 2.4.1  | dataset transparency     | [ ]  | [~]       | -   | -   | [~]    |
+| docs  | Z      | 2.4.1  | benchmark methodology    | [~]  | [~]       | -   | -   | [~]    |
 </pre>
 
 <hr>
 
-<h2>Scientific transparency</h2>
+<h2>v2.5.0 – Advanced ML lifecycle</h2>
 
 <pre>
-| type  | impact | target | description               | core | antispoof | api | sdk | status |
-|-------|--------|--------|---------------------------|------|-----------|-----|-----|--------|
-| docs  | Z      | v2.3.0 | dataset transparency      | [ ]  | [~]       | -   | -   | [~]    |
-| docs  | Z      | v2.4.0 | benchmark methodology     | [~]  | [~]       | -   | -   | [~]    |
-| infra | Y      | v2.5.0 | reproducible benchmarks   | [ ]  | [~]       | -   | -   | [~]    |
+| type  | impact | target | description              | core | antispoof | api | sdk | status |
+|-------|--------|--------|--------------------------|------|-----------|-----|-----|--------|
+| feat  | Y      | 2.6.0  | multi-model support      | [ ]  | [ ]       | -   | -   | [ ]    |
+| feat  | Y      | 2.6.0  | model reproducibility    | [ ]  | [ ]       | -   | -   | [ ]    |
+| feat  | Y      | 2.6.0  | calibration              | [ ]  | [ ]       | -   | -   | [ ]    |
+| infra | Y      | 2.6.0  | reproducible benchmarks  | [ ]  | [~]       | -   | -   | [~]    |
 </pre>
 
 <hr>
 
-<h2>Infrastructure and deployment</h2>
-
-<pre>
-| type  | impact | target | description          | core | antispoof | api | sdk | status |
-|-------|--------|--------|----------------------|------|-----------|-----|-----|--------|
-| feat  | Y      | v2.4.0 | Kubernetes support   | [ ]  | [ ]       | [ ] | -   | [ ]    |
-| docs  | Z      | v2.5.0 | production guide     | [ ]  | [ ]       | [ ] | -   | [ ]    |
-</pre>
-
-<hr>
-
-<h2>Developer experience</h2>
+<h2>v2.6.0 – Deployment and scalability</h2>
 
 <pre>
 | type  | impact | target | description             | core | antispoof | api | sdk | status |
 |-------|--------|--------|-------------------------|------|-----------|-----|-----|--------|
-| docs  | Z      | v2.0.0 | SDK usage examples      | -    | -         | -   | [x] | [x]    |
-| docs  | Z      | v2.0.0 | API usage examples      | -    | -         | [x] | [x] | [x]    |
-| infra | Z      | v2.2.0 | one-command local check | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
-| infra | Z      | v2.2.0 | one-command release prep| [ ]  | [ ]       | [ ] | [ ] | [ ]    |
+| feat  | Y      | 2.5.0  | payload limits          | -    | -         | [ ] | -   | [ ]    |
+| feat  | Y      | 2.5.0  | API authentication      | -    | -         | [ ] | [ ] | [ ]    |
+| feat  | Y      | 2.5.0  | Kubernetes deployment   | [ ]  | [ ]       | [ ] | -   | [ ]    |
+| docs  | Z      | 2.5.1  | production guide        | [ ]  | [ ]       | [ ] | -   | [ ]    |
 </pre>
 
 <hr>
 
-<h2>Trust and proof layer</h2>
+<h2>v3.0.0 – Breaking evolution</h2>
 
 <pre>
-| type     | impact | target | description              | core | antispoof | api | sdk | status |
-|----------|--------|--------|--------------------------|------|-----------|-----|-----|--------|
-| feat     | X      | v2.0.0 | proof-ready structure    | [x]  | -         | [x] | [x] | [x]    |
-| research | X      | TBD    | verifiable claims format | [~]  | -         | [ ] | [ ] | [ ]    |
-| research | X      | TBD    | ZKP feasibility          | -    | -         | [ ] | -   | [ ]    |
-| research | X      | TBD    | ZKP prototype            | -    | -         | [ ] | -   | [ ]    |
+| type  | impact | target | description              | core | antispoof | api | sdk | status |
+|-------|--------|--------|--------------------------|------|-----------|-----|-----|--------|
+| feat  | X      | 3.0.0  | image sequence input     | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
+| feat  | X      | 3.0.0  | video liveness           | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
+| feat  | X      | 3.0.0  | temporal scoring         | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
+| feat  | X      | 3.0.0  | replay attack resistance | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
 </pre>
 
 <hr>
 
-<h2>Temporal and liveness evolution</h2>
+<h2>Release policy</h2>
 
 <pre>
-| type  | impact | target | description                    | core | antispoof | api | sdk | status |
-|-------|--------|--------|--------------------------------|------|-----------|-----|-----|--------|
-| feat  | X      | v3.x.x | image sequence input           | [~]  | [ ]       | [ ] | [ ] | [ ]    |
-| feat  | X      | v3.x.x | video liveness                 | [~]  | [ ]       | [ ] | [ ] | [ ]    |
-| feat  | X      | v3.x.x | replay resistance              | [~]  | [ ]       | [ ] | [ ] | [ ]    |
-| feat  | Y      | v3.x.x | temporal consistency scoring   | [~]  | [ ]       | [ ] | [ ] | [ ]    |
-</pre>
+- pull requests validate quality, metadata, generated documentation and tests
+- pull requests must never publish Docker images, npm packages or releases
+- only main branch can trigger releases
+- version is read from project.json / package.json
+- tag vX.Y.Z is created automatically after successful CI on main
+- tag triggers:
+  - GitHub release
+  - Docker image publication
+  - npm publication (SDK)
 
-<hr>
-
-<h2>Historical context</h2>
-
-<pre>
-v1.x.x:
-- initial services
-- docker setup
-- CI/CD
-- early SDK
-- initial API contract
-
-v2.0.0:
-- contract stabilization
-- privacy-first design
-- score normalization
-- ZK-ready architecture
-
-v2.1.0:
-- metadata centralization
-- compatibility metadata
-- generated documentation
-- unified CI graph
-- release validation
+- release description must be automatically generated from CHANGELOG.md
+- CHANGELOG.md must be the single source of truth for release notes
 </pre>
 
 <hr>
 
 <h2>Notes</h2>
 
-- priorities may evolve based on feedback and contributors
+- patch versions are strictly internal fixes
+- minor versions introduce backward-compatible features
+- major versions introduce breaking changes
 - roadmap reflects actual implementation state
-- cross-repo alignment may trigger coordinated releases
+- cross-repo alignment must respect compatibility metadata
