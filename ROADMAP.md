@@ -174,7 +174,7 @@ status:
 
 <hr>
 
-<h2>Planned in v2.2.3 – Documentation restructuring</h2>
+<h2>Completed in v2.2.3 – Documentation restructuring</h2>
 
 <pre>
 | type | impact | target | description                                      | core | antispoof | api | sdk | status |

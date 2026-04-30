@@ -7,11 +7,49 @@
   <img src="https://img.shields.io/badge/status-open%20source-black" alt="Open Source">
 </p>
 
-Age Decision is an open source age decision system built around face-based age estimation, anti-spoofing analysis and privacy-first verification flows.
+<h2>What is Age Decision</h2>
 
-It does not perform identity verification, face recognition or document verification.
 
-Its goal is to provide transparent building blocks for age-gating systems where the final decision is probabilistic, traceable and inspectable.
+Age Decision is a privacy-first age decision system designed to determine whether a user is likely above or below a threshold (e.g. 18), without performing identity verification.
+
+It provides probabilistic decisions that can be used as a pre-filter before stronger verification systems.
+
+<hr>
+
+<h2>What it is NOT</h2>
+
+Age Decision does NOT:
+- prove legal age
+- perform identity verification
+- perform biometric authentication
+- replace KYC systems
+
+<hr>
+
+<h2>Typical use cases</h2>
+
+- age gating before KYC
+- reducing cost of identity verification providers
+- filtering obviously underage users
+- privacy-preserving eligibility checks
+
+<hr>
+
+<h2>Quick start</h2>
+
+Choose your entry point:
+
+1. API usage  
+   https://github.com/credona/age-decision-api
+
+2. JavaScript SDK  
+   https://github.com/credona/age-decision-js
+
+3. Core decision logic  
+   https://github.com/credona/age-decision-core
+
+4. Anti-spoof protection  
+   https://github.com/credona/age-decision-antispoof
 
 <hr>
 
@@ -43,6 +81,7 @@ Age Decision is composed of four repositories:
 - Zero Knowledge: docs/zero-knowledge.md
 - Research and references: docs/research.md
 - Repository map: docs/repositories.md
+- Governance: CONTRIBUTING.md
 
 <hr>
 
