@@ -179,13 +179,14 @@ status:
 <pre>
 | type | impact | target | description                                      | core | antispoof | api | sdk | status |
 |------|--------|--------|--------------------------------------------------|------|-----------|-----|-----|--------|
-| docs | Z      | 2.2.3  | enforce documentation boundaries                 | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
-| docs | Z      | 2.2.3  | remove cross-repository duplication              | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
-| docs | Z      | 2.2.3  | normalize repository README scope                | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
-| docs | Z      | 2.2.3  | normalize CONTRIBUTING to local workflows        | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
-| docs | Z      | 2.2.3  | normalize SECURITY and COMPATIBILITY scope       | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
-| docs | Z      | 2.2.3  | enforce absolute GitHub documentation linking    | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
-| docs | Z      | 2.2.3  | centralize global documentation in age-decision  | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
+| docs | Z      | 2.2.3  | enforce documentation boundaries                 | [x]  | [x]       | [x] | [x] | [x]    |
+| docs | Z      | 2.2.3  | remove cross-repository duplication              | [x]  | [x]       | [x] | [x] | [x]    |
+| docs | Z      | 2.2.3  | normalize repository README scope                | [x]  | [x]       | [x] | [x] | [x]    |
+| docs | Z      | 2.2.3  | normalize CONTRIBUTING to local workflows        | [x]  | [x]       | [x] | [x] | [x]    |
+| docs | Z      | 2.2.3  | normalize SECURITY and COMPATIBILITY scope       | [x]  | [x]       | [x] | [x] | [x]    |
+| docs | Z      | 2.2.3  | enforce absolute GitHub documentation linking    | [x]  | [x]       | [x] | [x] | [x]    |
+| docs | Z      | 2.2.3  | centralize global documentation in age-decision  | [x]  | [x]       | [x] | [x] | [x]    |
+| docs | Z      | 2.2.3  | adapt docs generation to concise README structure | [x]  | [x]       | [x] | [x] | [x]    |
 </pre>
 <hr>
 
