@@ -1,65 +1,102 @@
 <h1>Scoring</h1>
 
-Age Decision uses separate scores for separate responsibilities.
+Age Decision uses separate public scores for separate responsibilities.
 
-This avoids ambiguity and makes it easier to understand which part of the system produced a given trust signal.
+Scores are public decision support signals. They are not legal proof, identity proof, biometric proof, or certified compliance results.
 
 <hr>
 
-<h2>Score fields</h2>
+<h2>Score ownership</h2>
 
 <h3>cred_decision_score</h3>
 
 Produced by Age Decision Core.
 
-It represents the reliability of the age decision based on available model confidence and the distance from the configured threshold.
+It represents the public credibility of the age threshold decision.
+
+It is derived from a versioned scoring policy using public-safe factors such as signal quality category and threshold separation category.
+
+It must not expose:
+
+- estimated age
+- raw confidence
+- raw model scores
+- threshold distance
+- internal thresholds
 
 <h3>cred_antispoof_score</h3>
 
 Produced by Age Decision AntiSpoof.
 
-It represents the confidence that the submitted image looks like a real capture rather than a spoof attempt.
+It represents the public credibility of the still-image presentation attack decision.
+
+It is derived from a versioned scoring policy and calibration method.
+
+It must not expose:
+
+- raw logits
+- spoof score
+- liveness score
+- heuristic internals
+- internal threshold
+- raw calibration details
 
 <h3>cred_global_score</h3>
 
 Produced by Age Decision API.
 
-It represents the final verification confidence after combining age and anti-spoof signals.
+It represents the public global score after downstream checks are normalized.
 
-The current conservative aggregation strategy uses the weakest required score.
+The v2.5 policy is conservative:
+
+<pre>
+cred_global_score = min(cred_decision_score, cred_antispoof_score)
+</pre>
+
+This means the weakest required public signal determines the global score.
 
 <hr>
 
-<h2>Compatibility aliases</h2>
+<h2>Versioned scoring policies</h2>
 
-Some repositories may temporarily expose `cred_score` for backward compatibility.
+Each scoring policy must have a stable policy identifier.
 
-New integrations should prefer explicit score names:
+Current policy identifiers:
 
-- `cred_decision_score`
-- `cred_antispoof_score`
-- `cred_global_score`
+<pre>
+credona.age.threshold-margin.v1
+credona.antispoof.fusion-threshold.v1
+credona.api.global-min-score.v1
+</pre>
+
+Policy configuration belongs to domain scoring policy code, not public runtime configuration.
 
 <hr>
 
 <h2>Interpretation</h2>
 
-Scores are not legal proof, identity proof or mathematical proof.
+A high score means the public decision signal is stronger.
 
-They are machine-readable decision support signals.
+A low score means the decision should be treated with caution or routed to a stricter verification flow.
 
-A low score means the decision should be treated with caution or routed to a stricter verification path.
+The score should never be used alone.
 
-<hr>
+Recommended inputs for integrators:
 
-<h2>Recommended usage</h2>
-
-Integrators should combine:
-
-- final decision
-- global score
-- rejection reason
+- public decision
+- public reason
+- public score
 - privacy metadata
 - local regulatory requirements
 
-The score should not be used alone.
+<hr>
+
+<h2>Removed aliases</h2>
+
+The legacy field <code>cred_score</code> is not part of the public v2.5 contract.
+
+Integrations must use explicit score names:
+
+- <code>cred_decision_score</code>
+- <code>cred_antispoof_score</code>
+- <code>cred_global_score</code>

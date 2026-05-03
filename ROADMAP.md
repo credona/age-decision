@@ -235,41 +235,31 @@ status:
 
 <hr>
 
-<h2>v2.5.0 – Model lifecycle, scoring methodology and configuration simplification</h2>
+<h2>Completed in v2.5.0 – Model lifecycle, scoring methodology and configuration simplification</h2>
 
 <pre>
 | type  | impact | target | description                                           | core | antispoof | api | sdk | docs | status |
 |-------|--------|--------|-------------------------------------------------------|------|-----------|-----|-----|------|--------|
-| feat  | Y      | 2.5.0  | model metadata schema                                 | [ ]  | [ ]       | [ ] | [ ] | [ ]  | [ ]    |
-| feat  | Y      | 2.5.0  | exact model registry schema                           | [ ]  | [ ]       | [ ] | [ ] | [ ]  | [ ]    |
-| feat  | Y      | 2.5.0  | model validation                                      | [ ]  | [ ]       | -   | -   | -    | [ ]    |
-| feat  | Y      | 2.5.0  | model versioning                                      | [ ]  | [ ]       | [ ] | [ ] | [ ]  | [ ]    |
-| feat  | Y      | 2.5.0  | model registry abstraction                            | [ ]  | [ ]       | -   | -   | -    | [ ]    |
-| feat  | Y      | 2.5.0  | deterministic model selection policy                  | [ ]  | [ ]       | [ ] | -   | -    | [ ]    |
-| feat  | Y      | 2.5.0  | model reproducibility metadata                        | [ ]  | [ ]       | [ ] | -   | [ ]  | [ ]    |
-| feat  | Y      | 2.5.0  | minimal multi-model configuration                     | [ ]  | [ ]       | [ ] | -   | [ ]  | [ ]    |
-| feat  | Y      | 2.5.0  | replace model paths with model identifiers            | [ ]  | [ ]       | [ ] | [ ] | [ ]  | [ ]    |
-| chore | Z      | 2.5.0  | simplify project.json runtime structure               | [ ]  | [ ]       | [ ] | [ ] | [ ]  | [ ]    |
-| chore | Z      | 2.5.0  | remove dev/prod runtime duplication                   | [ ]  | [ ]       | [ ] | [ ] | [ ]  | [ ]    |
-| chore | Z      | 2.5.0  | remove low-level model path configuration             | [ ]  | [ ]       | [ ] | [ ] | [ ]  | [ ]    |
-| chore | Z      | 2.5.0  | remove non-deterministic runtime flags                | [ ]  | [ ]       | [ ] | [ ] | [ ]  | [ ]    |
-| chore | Z      | 2.5.0  | enforce privacy-first runtime invariants              | [ ]  | [ ]       | [ ] | [ ] | [ ]  | [ ]    |
-| feat  | Y      | 2.5.0  | public scoring methodology                            | [ ]  | [ ]       | [ ] | [ ] | [ ]  | [ ]    |
-| feat  | Y      | 2.5.0  | mathematical definition of cred_decision_score        | [ ]  | -         | [ ] | [ ] | [ ]  | [ ]    |
-| feat  | Y      | 2.5.0  | mathematical definition of cred_antispoof_score       | -    | [ ]       | [ ] | [ ] | [ ]  | [ ]    |
-| feat  | Y      | 2.5.0  | mathematical definition of cred_global_score          | -    | -         | [ ] | [ ] | [ ]  | [ ]    |
-| feat  | Y      | 2.5.0  | calibration methodology                               | [ ]  | [ ]       | [ ] | -   | [ ]  | [ ]    |
-| feat  | Y      | 2.5.0  | scoring policy abstraction                            | [ ]  | [ ]       | [ ] | -   | [ ]  | [ ]    |
-| feat  | Y      | 2.5.0  | move thresholds to model scoring policy               | [ ]  | [ ]       | [ ] | -   | [ ]  | [ ]    |
-| feat  | Y      | 2.5.0  | remove threshold logic from runtime config            | [ ]  | [ ]       | [ ] | [ ] | [ ]  | [ ]    |
-| test  | Y      | 2.5.0  | score bounds and monotonicity tests                   | [ ]  | [ ]       | [ ] | [ ] | -    | [ ]    |
-| test  | Y      | 2.5.0  | score stability tests                                 | [ ]  | [ ]       | [ ] | [ ] | -    | [ ]    |
-| test  | Y      | 2.5.0  | score privacy regression tests                        | [ ]  | [ ]       | [ ] | [ ] | -    | [ ]    |
-| test  | Y      | 2.5.0  | model contract and metadata tests                     | [ ]  | [ ]       | [ ] | [ ] | -    | [ ]    |
-| docs  | Z      | 2.5.0  | model registry documentation                          | [ ]  | [ ]       | [ ] | [ ] | [ ]  | [ ]    |
-| docs  | Z      | 2.5.0  | scoring methodology documentation                     | [ ]  | [ ]       | [ ] | [ ] | [ ]  | [ ]    |
-| docs  | Z      | 2.5.0  | dataset transparency                                  | [ ]  | [ ]       | -   | -   | [ ]  | [ ]    |
-| docs  | Z      | 2.5.0  | benchmark methodology                                 | [ ]  | [ ]       | -   | -   | [ ]  | [ ]    |
+| feat  | Y      | 2.5.0  | model metadata schema                                 | [x]  | [x]       | -   | -   | [x]  | [x]    |
+| feat  | Y      | 2.5.0  | model registry abstraction                            | [x]  | [x]       | -   | -   | [x]  | [x]    |
+| feat  | Y      | 2.5.0  | deterministic model identifiers                       | [x]  | [x]       | -   | -   | [x]  | [x]    |
+| feat  | Y      | 2.5.0  | model reproducibility metadata                        | [x]  | [x]       | -   | -   | [x]  | [x]    |
+| chore | Z      | 2.5.0  | simplify project.json runtime structure               | [x]  | [x]       | [x] | -   | [x]  | [x]    |
+| chore | Z      | 2.5.0  | remove dev/prod runtime duplication                   | [x]  | [x]       | [x] | -   | [x]  | [x]    |
+| chore | Z      | 2.5.0  | replace model paths with model identifiers            | [x]  | [x]       | -   | -   | [x]  | [x]    |
+| feat  | Y      | 2.5.0  | public scoring methodology                            | [x]  | [x]       | [x] | [x] | [x]  | [x]    |
+| feat  | Y      | 2.5.0  | versioned scoring policy abstraction                  | [x]  | [x]       | [x] | -   | [x]  | [x]    |
+| feat  | Y      | 2.5.0  | mathematical definition of cred_decision_score        | [x]  | -         | [x] | [x] | [x]  | [x]    |
+| feat  | Y      | 2.5.0  | mathematical definition of cred_antispoof_score       | -    | [x]       | [x] | [x] | [x]  | [x]    |
+| feat  | Y      | 2.5.0  | mathematical definition of cred_global_score          | -    | -         | [x] | [x] | [x]  | [x]    |
+| test  | Y      | 2.5.0  | score bounds and monotonicity tests                   | [x]  | [x]       | [x] | [x] | -    | [x]    |
+| test  | Y      | 2.5.0  | score stability tests                                 | [x]  | [x]       | [x] | [x] | -    | [x]    |
+| test  | Y      | 2.5.0  | score privacy regression tests                        | [x]  | [x]       | [x] | [x] | -    | [x]    |
+| test  | Y      | 2.5.0  | model contract and metadata tests                     | [x]  | [x]       | -   | -   | -    | [x]    |
+| docs  | Z      | 2.5.0  | model registry documentation                          | [x]  | [x]       | -   | -   | [x]  | [x]    |
+| docs  | Z      | 2.5.0  | scoring methodology documentation                     | [x]  | [x]       | [x] | [x] | [x]  | [x]    |
+| sec   | Y      | 2.5.0  | harden privacy-safe logs and public response filters  | [x]  | [x]       | [x] | [x] | -    | [x]    |
+| docs  | Z      | 2.5.0  | dataset and benchmark transparency                    | [x]  | [x]       | -   | -   | [x]  | [x]    |
 </pre>
 
 <hr>
