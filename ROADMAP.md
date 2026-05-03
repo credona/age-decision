@@ -258,6 +258,7 @@ status:
 | test  | Y      | 2.5.0  | model contract and metadata tests                     | [x]  | [x]       | -   | -   | -    | [x]    |
 | docs  | Z      | 2.5.0  | model registry documentation                          | [x]  | [x]       | -   | -   | [x]  | [x]    |
 | docs  | Z      | 2.5.0  | scoring methodology documentation                     | [x]  | [x]       | [x] | [x] | [x]  | [x]    |
+| sec   | Y      | 2.5.0  | harden privacy-safe logs and public response filters  | [x]  | [x]       | [x] | [x] | -    | [x]    |
 | docs  | Z      | 2.5.0  | dataset and benchmark transparency                    | [x]  | [x]       | -   | -   | [x]  | [x]    |
 </pre>
 
