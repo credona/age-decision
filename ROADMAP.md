@@ -18,6 +18,7 @@ type:
 - test: test strategy
 - research: exploration
 - docs: documentation
+- sec: security hardening
 
 impact:
 - X: breaking change
@@ -178,84 +179,121 @@ status:
 <h2>Completed in v2.2.3 – Documentation restructuring</h2>
 
 <pre>
-| type | impact | target | description                                      | core | antispoof | api | sdk | status |
-|------|--------|--------|--------------------------------------------------|------|-----------|-----|-----|--------|
-| docs | Z      | 2.2.3  | enforce documentation boundaries                 | [x]  | [x]       | [x] | [x] | [x]    |
-| docs | Z      | 2.2.3  | remove cross-repository duplication              | [x]  | [x]       | [x] | [x] | [x]    |
-| docs | Z      | 2.2.3  | normalize repository README scope                | [x]  | [x]       | [x] | [x] | [x]    |
-| docs | Z      | 2.2.3  | normalize CONTRIBUTING to local workflows        | [x]  | [x]       | [x] | [x] | [x]    |
-| docs | Z      | 2.2.3  | normalize SECURITY and COMPATIBILITY scope       | [x]  | [x]       | [x] | [x] | [x]    |
-| docs | Z      | 2.2.3  | enforce absolute GitHub documentation linking    | [x]  | [x]       | [x] | [x] | [x]    |
-| docs | Z      | 2.2.3  | centralize global documentation in age-decision  | [x]  | [x]       | [x] | [x] | [x]    |
+| type | impact | target | description                                       | core | antispoof | api | sdk | status |
+|------|--------|--------|---------------------------------------------------|------|-----------|-----|-----|--------|
+| docs | Z      | 2.2.3  | enforce documentation boundaries                  | [x]  | [x]       | [x] | [x] | [x]    |
+| docs | Z      | 2.2.3  | remove cross-repository duplication               | [x]  | [x]       | [x] | [x] | [x]    |
+| docs | Z      | 2.2.3  | normalize repository README scope                 | [x]  | [x]       | [x] | [x] | [x]    |
+| docs | Z      | 2.2.3  | normalize CONTRIBUTING to local workflows         | [x]  | [x]       | [x] | [x] | [x]    |
+| docs | Z      | 2.2.3  | normalize SECURITY and COMPATIBILITY scope        | [x]  | [x]       | [x] | [x] | [x]    |
+| docs | Z      | 2.2.3  | enforce absolute GitHub documentation linking     | [x]  | [x]       | [x] | [x] | [x]    |
+| docs | Z      | 2.2.3  | centralize global documentation in age-decision   | [x]  | [x]       | [x] | [x] | [x]    |
 | docs | Z      | 2.2.3  | adapt docs generation to concise README structure | [x]  | [x]       | [x] | [x] | [x]    |
 </pre>
 
 <hr>
 
-<h2>v2.3.0 – Public contract governance</h2>
+<h2>Completed in v2.3.0 – Public contract governance</h2>
 
 <pre>
-| type  | impact | target | description                                      | core | antispoof | api | sdk | status |
-|-------|--------|--------|--------------------------------------------------|------|-----------|-----|-----|--------|
-| feat  | Y      | 2.3.0  | stable status contract                           | [x]  | [x]       | [x] | [x] | [x]    |
-| feat  | Y      | 2.3.0  | standardized error code and message model        | [x]  | [x]       | [x] | [x] | [x]    |
-| feat  | Y      | 2.3.0  | normalized request validation                    | [x]  | [x]       | [x] | [x] | [x]    |
-| feat  | Y      | 2.3.0  | typed SDK error mapping                          | -    | -         | -   | [x] | [x]    |
-| test  | Y      | 2.3.0  | public contract regression tests                 | [x]  | [x]       | [x] | [x] | [x]    |
-| docs  | Z      | 2.3.0  | deprecation policy                               | [x]  | [x]       | [x] | [x] | [x]    |
-| docs  | Z      | 2.3.0  | error model documentation                        | [x]  | [x]       | [x] | [x] | [x]    |
-| docs  | Z      | 2.3.0  | status contract documentation                    | [x]  | [x]       | [x] | [x] | [x]    |
+| type  | impact | target | description                               | core | antispoof | api | sdk | status |
+|-------|--------|--------|-------------------------------------------|------|-----------|-----|-----|--------|
+| feat  | Y      | 2.3.0  | stable status contract                    | [x]  | [x]       | [x] | [x] | [x]    |
+| feat  | Y      | 2.3.0  | standardized error code and message model | [x]  | [x]       | [x] | [x] | [x]    |
+| feat  | Y      | 2.3.0  | normalized request validation             | [x]  | [x]       | [x] | [x] | [x]    |
+| feat  | Y      | 2.3.0  | typed SDK error mapping                   | -    | -         | -   | [x] | [x]    |
+| test  | Y      | 2.3.0  | public contract regression tests          | [x]  | [x]       | [x] | [x] | [x]    |
+| docs  | Z      | 2.3.0  | deprecation policy                        | [x]  | [x]       | [x] | [x] | [x]    |
+| docs  | Z      | 2.3.0  | error model documentation                 | [x]  | [x]       | [x] | [x] | [x]    |
+| docs  | Z      | 2.3.0  | status contract documentation             | [x]  | [x]       | [x] | [x] | [x]    |
 </pre>
 
 <hr>
 
-<h2>v2.4.0 – Internal architecture refactoring</h2>
+<h2>Completed in v2.4.0 – Internal architecture refactoring</h2>
 
 <pre>
-| type  | impact | target | description                                      | core | antispoof | api | sdk | status |
-|-------|--------|--------|--------------------------------------------------|------|-----------|-----|-----|--------|
-| test  | Y      | 2.4.0  | freeze public contracts before refactoring       | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
-| arch  | Y      | 2.4.0  | introduce clean architecture boundaries          | [ ]  | -         | -   | -   | [ ]    |
-| arch  | Y      | 2.4.0  | introduce pipeline-oriented architecture         | -    | [ ]       | -   | -   | [ ]    |
-| arch  | Y      | 2.4.0  | introduce hexagonal orchestration architecture   | -    | -         | [ ] | -   | [ ]    |
-| arch  | Y      | 2.4.0  | restructure SDK into layered architecture        | -    | -         | -   | [ ] | [ ]    |
-| chore | Y      | 2.4.0  | isolate domain logic from framework code         | [ ]  | [ ]       | [ ] | -   | [ ]    |
-| chore | Y      | 2.4.0  | introduce application use cases                  | [ ]  | [ ]       | [ ] | -   | [ ]    |
-| chore | Y      | 2.4.0  | move technical adapters to infrastructure layer  | [ ]  | [ ]       | [ ] | -   | [ ]    |
-| test  | Y      | 2.4.0  | split tests into unit, integration and contract  | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
-| docs  | Z      | 2.4.0  | document repository architecture                 | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
+| type  | impact | target | description                                            | core | antispoof | api | sdk | status |
+|-------|--------|--------|--------------------------------------------------------|------|-----------|-----|-----|--------|
+| test  | Y      | 2.4.0  | freeze public contracts before refactoring             | [x]  | [x]       | [x] | [x] | [x]    |
+| arch  | Y      | 2.4.0  | introduce clean architecture boundaries                | [x]  | -         | -   | -   | [x]    |
+| arch  | Y      | 2.4.0  | introduce pipeline-oriented architecture               | -    | [x]       | -   | -   | [x]    |
+| arch  | Y      | 2.4.0  | introduce hexagonal orchestration architecture         | -    | -         | [x] | -   | [x]    |
+| arch  | Y      | 2.4.0  | restructure SDK into layered architecture              | -    | -         | -   | [x] | [x]    |
+| chore | Y      | 2.4.0  | isolate domain logic from framework code               | [x]  | [x]       | [x] | -   | [x]    |
+| chore | Y      | 2.4.0  | introduce application use cases                        | [x]  | [x]       | [x] | -   | [x]    |
+| chore | Y      | 2.4.0  | move technical adapters to infrastructure layer        | [x]  | [x]       | [x] | -   | [x]    |
+| chore | Y      | 2.4.0  | replace legacy public names with neutral terminology   | [x]  | [x]       | [x] | [x] | [x]    |
+| chore | Y      | 2.4.0  | centralize public decision constants                   | [x]  | [x]       | [x] | [x] | [x]    |
+| test  | Y      | 2.4.0  | split tests into unit, integration and contract        | [x]  | [x]       | [x] | [x] | [x]    |
+| docs  | Z      | 2.4.0  | document repository architecture                       | [x]  | [x]       | [x] | [x] | [x]    |
+| test  | Y      | 2.4.0  | enforce privacy-safe logs coverage                     | [x]  | [x]       | [x] | -   | [x]    |
+| test  | Y      | 2.4.0  | reject unsupported input types deterministically       | [x]  | [x]       | [x] | [x] | [x]    |
+| sec   | Y      | 2.4.0  | prevent raw downstream responses from public outputs   | [x]  | [x]       | [x] | [x] | [x]    |
+| chore | Y      | 2.4.0  | prepare public input model for v3 multi-input support  | [x]  | [x]       | [x] | [x] | [x]    |
 </pre>
 
 <hr>
 
-<h2>v2.5.0 – Model lifecycle and transparency</h2>
+<h2>v2.5.0 – Model lifecycle, scoring methodology and configuration simplification</h2>
 
 <pre>
-| type  | impact | target | description                                      | core | antispoof | api | sdk | status |
-|-------|--------|--------|--------------------------------------------------|------|-----------|-----|-----|--------|
-| feat  | Y      | 2.5.0  | model validation                                 | [ ]  | [ ]       | -   | -   | [ ]    |
-| feat  | Y      | 2.5.0  | model versioning                                 | [ ]  | [ ]       | -   | -   | [ ]    |
-| feat  | Y      | 2.5.0  | model metadata inspection                        | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
-| docs  | Z      | 2.5.0  | dataset transparency                             | [ ]  | [~]       | -   | -   | [~]    |
-| docs  | Z      | 2.5.0  | benchmark methodology                            | [~]  | [~]       | -   | -   | [~]    |
-| infra | Y      | 2.5.0  | reproducible benchmark workflow                  | [ ]  | [~]       | -   | -   | [~]    |
+| type  | impact | target | description                                           | core | antispoof | api | sdk | docs | status |
+|-------|--------|--------|-------------------------------------------------------|------|-----------|-----|-----|------|--------|
+| feat  | Y      | 2.5.0  | model metadata schema                                 | [ ]  | [ ]       | [ ] | [ ] | [ ]  | [ ]    |
+| feat  | Y      | 2.5.0  | exact model registry schema                           | [ ]  | [ ]       | [ ] | [ ] | [ ]  | [ ]    |
+| feat  | Y      | 2.5.0  | model validation                                      | [ ]  | [ ]       | -   | -   | -    | [ ]    |
+| feat  | Y      | 2.5.0  | model versioning                                      | [ ]  | [ ]       | [ ] | [ ] | [ ]  | [ ]    |
+| feat  | Y      | 2.5.0  | model registry abstraction                            | [ ]  | [ ]       | -   | -   | -    | [ ]    |
+| feat  | Y      | 2.5.0  | deterministic model selection policy                  | [ ]  | [ ]       | [ ] | -   | -    | [ ]    |
+| feat  | Y      | 2.5.0  | model reproducibility metadata                        | [ ]  | [ ]       | [ ] | -   | [ ]  | [ ]    |
+| feat  | Y      | 2.5.0  | minimal multi-model configuration                     | [ ]  | [ ]       | [ ] | -   | [ ]  | [ ]    |
+| feat  | Y      | 2.5.0  | replace model paths with model identifiers            | [ ]  | [ ]       | [ ] | [ ] | [ ]  | [ ]    |
+| chore | Z      | 2.5.0  | simplify project.json runtime structure               | [ ]  | [ ]       | [ ] | [ ] | [ ]  | [ ]    |
+| chore | Z      | 2.5.0  | remove dev/prod runtime duplication                   | [ ]  | [ ]       | [ ] | [ ] | [ ]  | [ ]    |
+| chore | Z      | 2.5.0  | remove low-level model path configuration             | [ ]  | [ ]       | [ ] | [ ] | [ ]  | [ ]    |
+| chore | Z      | 2.5.0  | remove non-deterministic runtime flags                | [ ]  | [ ]       | [ ] | [ ] | [ ]  | [ ]    |
+| chore | Z      | 2.5.0  | enforce privacy-first runtime invariants              | [ ]  | [ ]       | [ ] | [ ] | [ ]  | [ ]    |
+| feat  | Y      | 2.5.0  | public scoring methodology                            | [ ]  | [ ]       | [ ] | [ ] | [ ]  | [ ]    |
+| feat  | Y      | 2.5.0  | mathematical definition of cred_decision_score        | [ ]  | -         | [ ] | [ ] | [ ]  | [ ]    |
+| feat  | Y      | 2.5.0  | mathematical definition of cred_antispoof_score       | -    | [ ]       | [ ] | [ ] | [ ]  | [ ]    |
+| feat  | Y      | 2.5.0  | mathematical definition of cred_global_score          | -    | -         | [ ] | [ ] | [ ]  | [ ]    |
+| feat  | Y      | 2.5.0  | calibration methodology                               | [ ]  | [ ]       | [ ] | -   | [ ]  | [ ]    |
+| feat  | Y      | 2.5.0  | scoring policy abstraction                            | [ ]  | [ ]       | [ ] | -   | [ ]  | [ ]    |
+| feat  | Y      | 2.5.0  | move thresholds to model scoring policy               | [ ]  | [ ]       | [ ] | -   | [ ]  | [ ]    |
+| feat  | Y      | 2.5.0  | remove threshold logic from runtime config            | [ ]  | [ ]       | [ ] | [ ] | [ ]  | [ ]    |
+| test  | Y      | 2.5.0  | score bounds and monotonicity tests                   | [ ]  | [ ]       | [ ] | [ ] | -    | [ ]    |
+| test  | Y      | 2.5.0  | score stability tests                                 | [ ]  | [ ]       | [ ] | [ ] | -    | [ ]    |
+| test  | Y      | 2.5.0  | score privacy regression tests                        | [ ]  | [ ]       | [ ] | [ ] | -    | [ ]    |
+| test  | Y      | 2.5.0  | model contract and metadata tests                     | [ ]  | [ ]       | [ ] | [ ] | -    | [ ]    |
+| docs  | Z      | 2.5.0  | model registry documentation                          | [ ]  | [ ]       | [ ] | [ ] | [ ]  | [ ]    |
+| docs  | Z      | 2.5.0  | scoring methodology documentation                     | [ ]  | [ ]       | [ ] | [ ] | [ ]  | [ ]    |
+| docs  | Z      | 2.5.0  | dataset transparency                                  | [ ]  | [ ]       | -   | -   | [ ]  | [ ]    |
+| docs  | Z      | 2.5.0  | benchmark methodology                                 | [ ]  | [ ]       | -   | -   | [ ]  | [ ]    |
 </pre>
 
 <hr>
 
-<h2>v2.6.0 – Demo, documentation website and developer experience</h2>
+<h2>v2.6.0 – Benchmark, calibration reporting and reproducibility</h2>
 
 <pre>
-| type  | impact | target | description                                      | core | antispoof | api | sdk | docs | status |
-|-------|--------|--------|--------------------------------------------------|------|-----------|-----|-----|------|--------|
-| feat  | Y      | 2.6.0  | public demo playground on credona.dev            | [ ]  | [ ]       | [ ] | [ ] | [ ]  | [ ]    |
-| feat  | Y      | 2.6.0  | documentation website on docs.credona.dev        | -    | -         | -   | -   | [ ]  | [ ]    |
-| feat  | Y      | 2.6.0  | guided capture UX                                | [ ]  | [ ]       | [ ] | [ ] | [ ]  | [ ]    |
-| feat  | Y      | 2.6.0  | head movement challenge flow                     | -    | [ ]       | [ ] | [ ] | [ ]  | [ ]    |
-| feat  | Y      | 2.6.0  | front-end capture frame and visual guidance      | -    | -         | [ ] | [ ] | [ ]  | [ ]    |
-| feat  | Y      | 2.6.0  | SDK browser helper for capture workflow          | -    | -         | -   | [ ] | [ ]  | [ ]    |
-| docs  | Z      | 2.6.0  | public getting-started documentation             | [ ]  | [ ]       | [ ] | [ ] | [ ]  | [ ]    |
-| docs  | Z      | 2.6.0  | demo limitations and privacy explanation         | [ ]  | [ ]       | [ ] | [ ] | [ ]  | [ ]    |
+| type  | impact | target | description                                         | core | antispoof | api | sdk | docs | status |
+|-------|--------|--------|-----------------------------------------------------|------|-----------|-----|-----|------|--------|
+| infra | Y      | 2.6.0  | core model benchmark execution scripts              | [ ]  | -         | -   | -   | -    | [ ]    |
+| infra | Y      | 2.6.0  | antispoof model benchmark execution scripts         | -    | [ ]       | -   | -   | -    | [ ]    |
+| infra | Y      | 2.6.0  | core service benchmark execution scripts            | [ ]  | -         | -   | -   | -    | [ ]    |
+| infra | Y      | 2.6.0  | antispoof service benchmark execution scripts       | -    | [ ]       | -   | -   | -    | [ ]    |
+| infra | Y      | 2.6.0  | end-to-end API benchmark execution scripts          | -    | -         | [ ] | [ ] | -    | [ ]    |
+| infra | Y      | 2.6.0  | benchmark report generation                         | [ ]  | [ ]       | [ ] | -   | [ ]  | [ ]    |
+| docs  | Z      | 2.6.0  | calibration report                                  | [ ]  | [ ]       | [ ] | -   | [ ]  | [ ]    |
+| docs  | Z      | 2.6.0  | cred_decision_score benchmark report                | [ ]  | -         | [ ] | -   | [ ]  | [ ]    |
+| docs  | Z      | 2.6.0  | cred_antispoof_score benchmark report               | -    | [ ]       | [ ] | -   | [ ]  | [ ]    |
+| docs  | Z      | 2.6.0  | cred_global_score benchmark report                  | -    | -         | [ ] | -   | [ ]  | [ ]    |
+| docs  | Z      | 2.6.0  | benchmark machine characteristics                   | [ ]  | [ ]       | [ ] | -   | [ ]  | [ ]    |
+| docs  | Z      | 2.6.0  | dataset usage and limitation documentation          | [ ]  | [ ]       | -   | -   | [ ]  | [ ]    |
+| docs  | Z      | 2.6.0  | model comparison report                             | [ ]  | [ ]       | [ ] | -   | [ ]  | [ ]    |
+| test  | Y      | 2.6.0  | benchmark reproducibility tests                     | [ ]  | [ ]       | [ ] | -   | -    | [ ]    |
+| test  | Y      | 2.6.0  | benchmark output schema tests                       | [ ]  | [ ]       | [ ] | -   | -    | [ ]    |
 </pre>
 
 <hr>
@@ -263,13 +301,14 @@ status:
 <h2>v2.7.0 – Production guardrails</h2>
 
 <pre>
-| type  | impact | target | description                                      | core | antispoof | api | sdk | status |
-|-------|--------|--------|--------------------------------------------------|------|-----------|-----|-----|--------|
-| feat  | Y      | 2.7.0  | payload size limits                              | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
-| feat  | Y      | 2.7.0  | request timeout policy                           | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
-| feat  | Y      | 2.7.0  | API authentication                               | -    | -         | [ ] | [ ] | [ ]    |
-| feat  | Y      | 2.7.0  | API rate limiting                                | -    | -         | [ ] | [ ] | [ ]    |
-| test  | Y      | 2.7.0  | security and limits regression tests             | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
+| type  | impact | target | description                          | core | antispoof | api | sdk | status |
+|-------|--------|--------|--------------------------------------|------|-----------|-----|-----|--------|
+| feat  | Y      | 2.7.0  | payload size limits                  | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
+| feat  | Y      | 2.7.0  | request timeout policy               | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
+| feat  | Y      | 2.7.0  | API authentication                   | -    | -         | [ ] | [ ] | [ ]    |
+| feat  | Y      | 2.7.0  | API rate limiting                    | -    | -         | [ ] | [ ] | [ ]    |
+| sec   | Y      | 2.7.0  | privacy-safe audit event policy      | [ ]  | [ ]       | [ ] | -   | [ ]    |
+| test  | Y      | 2.7.0  | security and limits regression tests | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
 </pre>
 
 <hr>
@@ -277,11 +316,12 @@ status:
 <h2>v2.7.1 – Production documentation</h2>
 
 <pre>
-| type  | impact | target | description                                      | core | antispoof | api | sdk | status |
-|-------|--------|--------|--------------------------------------------------|------|-----------|-----|-----|--------|
-| docs  | Z      | 2.7.1  | production security guide                        | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
-| docs  | Z      | 2.7.1  | deployment configuration guide                   | [ ]  | [ ]       | [ ] | -   | [ ]    |
-| docs  | Z      | 2.7.1  | SDK authentication usage guide                   | -    | -         | -   | [ ] | [ ]    |
+| type | impact | target | description                    | core | antispoof | api | sdk | docs | status |
+|------|--------|--------|--------------------------------|------|-----------|-----|-----|------|--------|
+| docs | Z      | 2.7.1  | production security guide      | [ ]  | [ ]       | [ ] | [ ] | [ ]  | [ ]    |
+| docs | Z      | 2.7.1  | deployment configuration guide | [ ]  | [ ]       | [ ] | -   | [ ]  | [ ]    |
+| docs | Z      | 2.7.1  | SDK authentication usage guide | -    | -         | -   | [ ] | [ ]  | [ ]    |
+| docs | Z      | 2.7.1  | operational privacy guide      | [ ]  | [ ]       | [ ] | -   | [ ]  | [ ]    |
 </pre>
 
 <hr>
@@ -289,26 +329,52 @@ status:
 <h2>v2.8.0 – Deployment and scalability</h2>
 
 <pre>
-| type  | impact | target | description                                      | core | antispoof | api | sdk | status |
-|-------|--------|--------|--------------------------------------------------|------|-----------|-----|-----|--------|
-| feat  | Y      | 2.8.0  | production Docker Compose stack                  | [ ]  | [ ]       | [ ] | -   | [ ]    |
-| feat  | Y      | 2.8.0  | Kubernetes deployment manifests                  | [ ]  | [ ]       | [ ] | -   | [ ]    |
-| feat  | Y      | 2.8.0  | service resource limits documentation            | [ ]  | [ ]       | [ ] | -   | [ ]    |
-| infra | Z      | 2.8.0  | deployment smoke tests                           | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
-| docs  | Z      | 2.8.0  | deployment guide                                 | [ ]  | [ ]       | [ ] | -   | [ ]    |
+| type  | impact | target | description                           | core | antispoof | api | sdk | docs | status |
+|-------|--------|--------|---------------------------------------|------|-----------|-----|-----|------|--------|
+| feat  | Y      | 2.8.0  | production Docker Compose stack       | [ ]  | [ ]       | [ ] | -   | -    | [ ]    |
+| feat  | Y      | 2.8.0  | Kubernetes deployment manifests       | [ ]  | [ ]       | [ ] | -   | -    | [ ]    |
+| feat  | Y      | 2.8.0  | service resource limits documentation | [ ]  | [ ]       | [ ] | -   | [ ]  | [ ]    |
+| infra | Z      | 2.8.0  | deployment smoke tests                | [ ]  | [ ]       | [ ] | [ ] | -    | [ ]    |
+| docs  | Z      | 2.8.0  | deployment guide                      | [ ]  | [ ]       | [ ] | -   | [ ]  | [ ]    |
 </pre>
 
 <hr>
 
-<h2>v2.9.0 – Advanced ML lifecycle</h2>
+<h2>v2.9.0 – Advanced ML lifecycle and recalibration</h2>
 
 <pre>
-| type  | impact | target | description                                      | core | antispoof | api | sdk | status |
-|-------|--------|--------|--------------------------------------------------|------|-----------|-----|-----|--------|
-| feat  | Y      | 2.9.0  | multi-model support                              | [ ]  | [ ]       | -   | -   | [ ]    |
-| feat  | Y      | 2.9.0  | model reproducibility                            | [ ]  | [ ]       | -   | -   | [ ]    |
-| feat  | Y      | 2.9.0  | calibration workflow                             | [ ]  | [ ]       | -   | -   | [ ]    |
-| docs  | Z      | 2.9.0  | advanced model lifecycle documentation           | [ ]  | [ ]       | [ ] | -   | [ ]    |
+| type  | impact | target | description                                      | core | antispoof | api | sdk | docs | status |
+|-------|--------|--------|--------------------------------------------------|------|-----------|-----|-----|------|--------|
+| feat  | Y      | 2.9.0  | recalibration workflow                           | [ ]  | [ ]       | [ ] | -   | -    | [ ]    |
+| feat  | Y      | 2.9.0  | recalibration dataset policy                     | [ ]  | [ ]       | [ ] | -   | [ ]  | [ ]    |
+| feat  | Y      | 2.9.0  | recalibration validation gates                   | [ ]  | [ ]       | [ ] | -   | [ ]  | [ ]    |
+| feat  | Y      | 2.9.0  | model ensemble strategy                          | [ ]  | [ ]       | [ ] | -   | -    | [ ]    |
+| feat  | Y      | 2.9.0  | model drift monitoring preparation               | [ ]  | [ ]       | [ ] | -   | [ ]  | [ ]    |
+| feat  | Y      | 2.9.0  | score drift monitoring preparation               | [ ]  | [ ]       | [ ] | -   | [ ]  | [ ]    |
+| feat  | Y      | 2.9.0  | offline evaluation pipeline                      | [ ]  | [ ]       | [ ] | -   | [ ]  | [ ]    |
+| feat  | Y      | 2.9.0  | model rollback policy                            | [ ]  | [ ]       | [ ] | -   | [ ]  | [ ]    |
+| test  | Y      | 2.9.0  | recalibration regression tests                   | [ ]  | [ ]       | [ ] | -   | -    | [ ]    |
+| test  | Y      | 2.9.0  | drift detection policy tests                     | [ ]  | [ ]       | [ ] | -   | -    | [ ]    |
+| docs  | Z      | 2.9.0  | advanced model lifecycle documentation           | [ ]  | [ ]       | [ ] | -   | [ ]  | [ ]    |
+| docs  | Z      | 2.9.0  | recalibration methodology documentation          | [ ]  | [ ]       | [ ] | -   | [ ]  | [ ]    |
+</pre>
+
+<hr>
+
+<h2>v2.10.0 – Documentation website, demo and developer experience</h2>
+
+<pre>
+| type  | impact | target | description                                 | core | antispoof | api | sdk | docs | status |
+|-------|--------|--------|---------------------------------------------|------|-----------|-----|-----|------|--------|
+| feat  | Y      | 2.10.0 | public demo playground on credona.dev        | [ ]  | [ ]       | [ ] | [ ] | [ ]  | [ ]    |
+| feat  | Y      | 2.10.0 | documentation website on docs.credona.dev    | -    | -         | -   | -   | [ ]  | [ ]    |
+| feat  | Y      | 2.10.0 | guided capture UX                           | [ ]  | [ ]       | [ ] | [ ] | [ ]  | [ ]    |
+| feat  | Y      | 2.10.0 | head movement challenge flow                | -    | [ ]       | [ ] | [ ] | [ ]  | [ ]    |
+| feat  | Y      | 2.10.0 | front-end capture frame and visual guidance | -    | -         | [ ] | [ ] | [ ]  | [ ]    |
+| feat  | Y      | 2.10.0 | SDK browser helper for capture workflow     | -    | -         | -   | [ ] | [ ]  | [ ]    |
+| docs  | Z      | 2.10.0 | public getting-started documentation        | [ ]  | [ ]       | [ ] | [ ] | [ ]  | [ ]    |
+| docs  | Z      | 2.10.0 | demo limitations and privacy explanation    | [ ]  | [ ]       | [ ] | [ ] | [ ]  | [ ]    |
+| test  | Y      | 2.10.0 | public demo smoke tests                     | -    | -         | [ ] | [ ] | [ ]  | [ ]    |
 </pre>
 
 <hr>
@@ -316,12 +382,12 @@ status:
 <h2>v3.0.0 – Temporal and video-based verification</h2>
 
 <pre>
-| type | impact | target | description                                      | core | antispoof | api | sdk | status |
-|------|--------|--------|--------------------------------------------------|------|-----------|-----|-----|--------|
-| feat | X      | 3.0.0  | image sequence input                             | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
-| feat | X      | 3.0.0  | video liveness                                   | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
-| feat | X      | 3.0.0  | temporal scoring                                 | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
-| feat | X      | 3.0.0  | replay attack resistance                         | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
+| type | impact | target | description              | core | antispoof | api | sdk | status |
+|------|--------|--------|--------------------------|------|-----------|-----|-----|--------|
+| feat | X      | 3.0.0  | image sequence input     | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
+| feat | X      | 3.0.0  | video liveness           | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
+| feat | X      | 3.0.0  | temporal scoring         | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
+| feat | X      | 3.0.0  | replay attack resistance | [ ]  | [ ]       | [ ] | [ ] | [ ]    |
 </pre>
 
 <hr>
@@ -343,7 +409,7 @@ status:
 - Docker package versions without tags must be deleted
 - each released version must produce one version-tagged Docker package per Dockerized repository
 - release description should be generated from CHANGELOG.md
-- CHANGELOG.md should become the single source of truth for release notes
+- CHANGELOG.md should be the single source of truth for release notes
 </pre>
 
 <hr>
@@ -354,7 +420,9 @@ status:
 - patch versions are strictly internal fixes
 - minor versions introduce backward-compatible features
 - major versions introduce breaking changes
-- production hardening starts after demo and public documentation are usable
+- production hardening must happen before public demo exposure
+- public demo is treated as a production-like deployment surface
+- public documentation may be prepared before demo exposure when it does not expose runtime services
 - internal architecture refactoring can be released as a minor version when public contracts remain compatible
 - badges are visual indicators only; metadata files remain the source of truth
 - roadmap reflects actual implementation state
@@ -363,6 +431,11 @@ status:
 - API must remain an orchestration gateway
 - Core owns age decision scoring
 - AntiSpoof owns presentation attack scoring
+- API owns global score aggregation
+- model paths must be resolved through model registries, not public runtime config
+- thresholds must belong to scoring or calibration policies, not project.json runtime config
+- privacy-first behavior must be invariant and not disabled by runtime flags
+- ZK-ready / proof-ready behavior is a capability, not a runtime toggle
 - docs.credona.dev owns public documentation
 - credona.dev owns the public demo experience
 </pre>
