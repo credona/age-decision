@@ -2,82 +2,183 @@
 
 Age Decision is built as a small ecosystem of independent services and clients.
 
-The goal is to keep each responsibility isolated while allowing a public API to expose one unified decision.
+Each repository owns a bounded responsibility.
 
 <hr>
 
 <h2>High-level flow</h2>
 
-```text
-Client
-  -> Age Decision API
-      -> Age Decision Core
-      -> Age Decision AntiSpoof
-  -> Unified response
-```
+<pre>
+SDK
+  -> API gateway
+      -> Core
+      -> AntiSpoof
+  -> response_filter
+  -> public response
+</pre>
 
 <hr>
 
-<h2>Components</h2>
+<h2>Repositories</h2>
 
 <h3>Age Decision Core</h3>
 
-Responsible for:
+Core owns:
 
 - face detection
-- age estimation
-- threshold policy
-- age decision scoring
+- internal age estimation
+- threshold decision
+- cred_decision_score
+- model registry
+- scoring policy
+- proof-ready metadata
 - privacy metadata
-- proof-ready response metadata
+
+Core must not expose estimated age, raw confidence, raw model scores, or internal thresholds.
 
 <h3>Age Decision AntiSpoof</h3>
 
-Responsible for:
+AntiSpoof owns:
 
-- still-image anti-spoofing
+- still-image presentation attack detection
 - real / spoof decision
-- anti-spoof confidence
-- anti-spoof trust score
-- presentation attack metadata
+- cred_antispoof_score
+- model registry
+- scoring policy
+- calibration metadata
+- privacy metadata
+
+AntiSpoof must not expose raw logits, spoof score, heuristic internals, or internal threshold values.
 
 <h3>Age Decision API</h3>
 
-Responsible for:
+API owns:
 
-- public verification endpoint
+- public /verify endpoint
+- request validation
 - downstream orchestration
-- request tracing
-- global decision aggregation
-- global score computation
-- privacy metadata aggregation
+- normalized decision_check
+- normalized spoof_check
+- cred_global_score
+- global response filtering
+- privacy and proof-ready metadata aggregation
+
+API must not expose downstream raw responses.
 
 <h3>Age Decision JS SDK</h3>
 
-Responsible for:
+SDK owns:
 
 - typed client access
-- request helpers
+- request mapping
 - timeout handling
 - retry handling
-- typed response contracts
+- standardized error mapping
+- response filtering on unsafe payload casting
+
+SDK must remain client-only.
+
+It must not duplicate business scoring or decision logic.
+
+<hr>
+
+<h2>Layering rule</h2>
+
+Python services use this structure:
+
+<pre>
+app/
+  api/
+  application/
+  domain/
+  infrastructure/
+  models/
+</pre>
+
+Rules:
+
+- api handles HTTP parsing, headers, error mapping, and response filtering
+- application owns use cases and orchestration
+- application depends on ports, not infrastructure implementations
+- domain contains pure logic only
+- infrastructure owns HTTP clients, runtime configuration, logging, and external adapters
+- response_filter is the final public contract barrier
+
+<hr>
+
+<h2>Ports</h2>
+
+Downstream dependencies must be expressed as ports.
+
+Examples:
+
+- CoreClientPort
+- AntispoofClientPort
+- InferenceEnginePort
+- InputAnalyzerPort
+- ModelRegistryPort
+
+Ports must not contain HTTP implementation details.
+
+<hr>
+
+<h2>Model lifecycle in v2.5</h2>
+
+Core and AntiSpoof use model metadata and registry abstractions.
+
+Model selection must be deterministic.
+
+Public runtime configuration should use stable model identifiers instead of low-level model paths.
+
+Model metadata may include:
+
+- model_id
+- model_version
+- task
+- runtime
+- scoring_policy_id
+- reproducibility metadata
+
+<hr>
+
+<h2>Scoring ownership</h2>
+
+- Core owns <code>cred_decision_score</code>
+- AntiSpoof owns <code>cred_antispoof_score</code>
+- API owns <code>cred_global_score</code>
+- SDK consumes public scores only
+
+Score logic belongs to versioned scoring policies.
+
+Threshold logic must not be controlled by unsafe runtime flags.
+
+<hr>
+
+<h2>Privacy contract</h2>
+
+Public responses must pass through a response filter.
+
+Never expose:
+
+- raw downstream responses
+- internal thresholds
+- raw model scores
+- base64 images
+- decoded image bytes
+- image paths
+- estimated age
+- confidence
+- internal exception details
 
 <hr>
 
 <h2>Design principles</h2>
 
-- services should remain stateless
-- image processing should be ephemeral by default
-- API contracts should be explicit
-- scores should be named by responsibility
-- global documentation should not be duplicated in technical repositories
-
-<hr>
-
-<h2>Score ownership</h2>
-
-- `cred_decision_score`: produced by Core
-- `cred_antispoof_score`: produced by AntiSpoof
-- `cred_global_score`: produced by API
-
-The JS SDK only consumes these fields.
+- privacy-first
+- deterministic public contract
+- explicit orchestration
+- strict repository boundaries
+- domain purity
+- Docker reproducibility
+- no hidden coupling
+- no duplicated normalization logic

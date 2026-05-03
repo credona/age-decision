@@ -2,7 +2,7 @@
 
 Age Decision is designed around privacy-first processing.
 
-This does not mean the system removes all risk. It means the architecture avoids unnecessary persistence and keeps sensitive data handling explicit.
+This does not remove all risk. It means sensitive data handling is explicit, minimized, and tested.
 
 <hr>
 
@@ -11,9 +11,10 @@ This does not mean the system removes all risk. It means the architecture avoids
 - avoid storing raw images
 - avoid storing biometric templates
 - avoid logging image contents
-- avoid exposing downstream internals by default
+- avoid exposing downstream internals
 - keep processing ephemeral where possible
-- make response metadata explicit
+- expose only normalized public response structures
+- enforce public response filtering before returning data
 
 <hr>
 
@@ -21,9 +22,71 @@ This does not mean the system removes all risk. It means the architecture avoids
 
 Uploaded images are intended to be processed in memory by the relevant service.
 
-The API gateway orchestrates requests and should not persist uploaded content.
+The API gateway orchestrates requests and must not persist uploaded content.
 
-Technical repositories may expose privacy metadata to make this behavior visible to integrators.
+Core and AntiSpoof own inference.
+
+The API owns orchestration and global decision aggregation.
+
+The SDK only consumes the public API contract.
+
+<hr>
+
+<h2>Public response policy</h2>
+
+Public responses must not expose:
+
+- estimated age
+- raw confidence
+- raw model scores
+- internal thresholds
+- threshold distance
+- downstream raw responses
+- raw payloads
+- image bytes
+- image paths
+- base64 payloads
+
+Allowed public response fields include:
+
+- public decision
+- public reason
+- public Credona scores when part of the contract
+- spoof_check_required
+- normalized public structures
+- privacy metadata
+- proof-ready metadata
+
+<hr>
+
+<h2>Logging policy</h2>
+
+Logs must contain operational metadata only.
+
+Allowed log fields:
+
+- request_id
+- correlation_id
+- event
+- public decision
+- public reason codes
+- sanitized error codes
+
+Forbidden log fields:
+
+- raw image bytes
+- image paths
+- base64 payloads
+- raw payloads
+- estimated age
+- confidence
+- internal scores
+- internal thresholds
+- downstream raw responses
+- unfiltered metadata
+- full downstream exception traces
+
+Every Python service handling sensitive data must include privacy-safe log tests.
 
 <hr>
 
@@ -39,30 +102,6 @@ Age Decision does not provide:
 
 <hr>
 
-<h2>Logging policy</h2>
-
-Logs should contain operational metadata only.
-
-Allowed examples:
-
-- request_id
-- correlation_id
-- decision
-- score values
-- rejection reason
-- latency
-- service name
-
-Forbidden examples:
-
-- raw image bytes
-- base64 payloads
-- biometric embeddings
-- private file paths
-- full downstream exception traces in public responses
-
-<hr>
-
 <h2>Integrator responsibility</h2>
 
-Deployers must ensure that reverse proxies, object storage, external logs and monitoring systems do not persist sensitive user data unintentionally.
+Deployers must ensure that reverse proxies, object storage, external logs, tracing tools, metrics systems, and monitoring systems do not persist sensitive user data unintentionally.
