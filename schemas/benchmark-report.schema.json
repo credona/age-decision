@@ -189,7 +189,10 @@
           "required": [
             "match",
             "no_match",
-            "uncertain"
+            "uncertain",
+            "allow",
+            "deny",
+            "review"
           ],
           "properties": {
             "match": {
@@ -201,6 +204,18 @@
               "minimum": 0
             },
             "uncertain": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "allow": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "deny": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "review": {
               "type": "integer",
               "minimum": 0
             }

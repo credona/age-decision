@@ -34,7 +34,8 @@ Benchmarks should run through Docker whenever possible.
 
 The preferred execution mode is a documented command such as:
 
-cd ../age-decision-benchmark && scripts/server/run_all_service_contract_benchmarks_local.sh
+cd ../age-decision-benchmark
+scripts/server/run_all_service_contract_benchmarks_local.sh
 
 or a benchmark-specific Docker Compose command.
 

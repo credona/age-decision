@@ -35,6 +35,8 @@ Allowed service values:
 - antispoof
 - api
 
+Decision distributions must follow the public decision vocabulary of the benchmarked service.
+
 ## Benchmark targets
 
 Allowed benchmark_target values:
@@ -95,7 +97,7 @@ Required fields:
 - average latency in milliseconds
 - p95 latency in milliseconds
 - throughput in requests per second
-- public decision distribution
+- public decision distribution using service-specific public decisions
 
 ## Privacy metadata
 
