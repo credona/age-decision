@@ -269,11 +269,11 @@ status:
 <pre>
 | type  | impact | target | description                                         | core | antispoof | api | sdk | docs | status |
 |-------|--------|--------|-----------------------------------------------------|------|-----------|-----|-----|------|--------|
-| infra | Y      | 2.6.0  | core model benchmark execution scripts              | [ ]  | -         | -   | -   | -    | [ ]    |
-| infra | Y      | 2.6.0  | antispoof model benchmark execution scripts         | -    | [ ]       | -   | -   | -    | [ ]    |
-| infra | Y      | 2.6.0  | core service benchmark execution scripts            | [ ]  | -         | -   | -   | -    | [ ]    |
-| infra | Y      | 2.6.0  | antispoof service benchmark execution scripts       | -    | [ ]       | -   | -   | -    | [ ]    |
-| infra | Y      | 2.6.0  | end-to-end API benchmark execution scripts          | -    | -         | [ ] | [ ] | -    | [ ]    |
+| infra | Y      | 2.6.0  | centralized core model benchmark workflow              | [ ]  | -         | -   | -   | -    | [ ]    |
+| infra | Y      | 2.6.0  | centralized antispoof model benchmark workflow         | -    | [ ]       | -   | -   | -    | [ ]    |
+| infra | Y      | 2.6.0  | centralized core service contract benchmark workflow            | [ ]  | -         | -   | -   | -    | [ ]    |
+| infra | Y      | 2.6.0  | centralized antispoof service contract benchmark workflow       | -    | [ ]       | -   | -   | -    | [ ]    |
+| infra | Y      | 2.6.0  | centralized API end-to-end benchmark workflow          | -    | -         | [ ] | [ ] | -    | [ ]    |
 | infra | Y      | 2.6.0  | benchmark report generation                         | [ ]  | [ ]       | [ ] | -   | [ ]  | [ ]    |
 | docs  | Z      | 2.6.0  | calibration report                                  | [ ]  | [ ]       | [ ] | -   | [ ]  | [ ]    |
 | docs  | Z      | 2.6.0  | cred_decision_score benchmark report                | [ ]  | -         | [ ] | -   | [ ]  | [ ]    |
